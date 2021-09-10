@@ -25,7 +25,6 @@ function Home() {
         event.preventDefault()
         document.getElementById("search-form").reset()
         setSearchTerm([inputString, searchType])
-        console.log(searchTerm)
     }
 
     return (
