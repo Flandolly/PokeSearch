@@ -25,6 +25,10 @@ a {
     color: whitesmoke;
 }
 
+a:hover {
+    color: #a9a9a9;
+}
+
 .col {
     font-family: "Press Start 2P", cursive;
     height: 50px;
@@ -46,6 +50,7 @@ a {
 
 .home-button-group {
     margin-bottom: 50px;
+    cursor: pointer;
 }
 
 .navbar {
