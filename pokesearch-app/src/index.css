@@ -1,16 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 @font-face {
-  font-family: PokeFontHollow;
-  src: url("Resources/Pokemon Hollow.ttf");
+    font-family: PokeFontHollow;
+    src: url("Resources/Pokemon Hollow.ttf");
 }
 
 @font-face {
-  font-family: PokeFontSolid;
-  src: url("Resources/Pokemon Solid.ttf");
+    font-family: PokeFontSolid;
+    src: url("Resources/Pokemon Solid.ttf");
 }
 
 h1 {
-  font-family: PokeFontHollow, cursive;
-  letter-spacing: 2px;
+    font-family: PokeFontHollow, cursive;
+    letter-spacing: 2px;
+}
+
+h2 {
+    font-family: "Press Start 2P", cursive;
+}
+
+.col {
+    font-family: "Press Start 2P", cursive;
+    height: 50px;
+    padding: 0.8em 0;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 2px 2px black;
 }
