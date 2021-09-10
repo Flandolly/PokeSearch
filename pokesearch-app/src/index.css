@@ -12,11 +12,17 @@
 
 h1 {
     font-family: PokeFontHollow, cursive;
+    font-size: 8em;
     letter-spacing: 2px;
 }
 
 h2 {
     font-family: "Press Start 2P", cursive;
+}
+
+a {
+    text-decoration: none;
+    color: whitesmoke;
 }
 
 .col {
@@ -26,4 +32,55 @@ h2 {
     border: 1px solid black;
     border-radius: 5px;
     box-shadow: 2px 2px black;
+}
+
+.search-form {
+    width: 100%;
+}
+
+.home-title {
+    margin-top: 10%;
+    margin-bottom: 50px;
+    color: #e0c23e;
+}
+
+.home-button-group {
+    margin-bottom: 50px;
+}
+
+.navbar {
+    padding: 15px;
+    background-color: #770000;
+}
+
+.active {
+    animation: fade-to-black 0.5s forwards;
+}
+
+@media (max-width: 800px) {
+
+    h1 {
+        font-size: 3.5em;
+    }
+
+}
+
+@media (max-width: 300px) {
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+}
+
+@keyframes fade-to-black {
+    from {
+        background-color: white;
+        color: black;
+    }
+
+    to {
+        background-color: black;
+        color: white;
+    }
 }
