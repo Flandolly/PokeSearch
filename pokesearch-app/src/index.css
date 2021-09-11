@@ -16,7 +16,7 @@ h1 {
     letter-spacing: 2px;
 }
 
-h2 {
+h2, h3, h4 {
     font-family: "Press Start 2P", cursive;
 }
 
@@ -36,6 +36,12 @@ a:hover {
     border: 1px solid black;
     border-radius: 5px;
     box-shadow: 2px 2px black;
+}
+
+.stat {
+    border: none;
+    margin-bottom: 10px;
+    box-shadow: none;
 }
 
 .search-form {
@@ -62,6 +68,12 @@ a:hover {
     animation: fade-to-black 0.5s forwards;
 }
 
+.stats-chart {
+    border: 1px solid black;
+    justify-self: end;
+    width: 25%;
+    box-shadow: 2px 2px black;
+}
 
 
 @media (max-width: 800px) {
