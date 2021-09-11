@@ -1,6 +1,6 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
-function Home() {
+function Home(props) {
 
     const [inputString, setInputString] = useState("")
     const [searchTerm, setSearchTerm] = useState([])
@@ -24,8 +24,15 @@ function Home() {
 
         event.preventDefault()
         document.getElementById("search-form").reset()
+
         setSearchTerm([inputString, searchType])
     }
+
+    useEffect(() => {
+        if (searchTerm.length !== 0) {
+            props.history.push(`/${searchTerm[1]}/${searchTerm[0]}`)
+        }
+    }, [searchTerm, props.history])
 
     return (
         <div className={"home-container container-fluid d-flex justify-content-center align-items-center flex-column"}>
@@ -39,7 +46,7 @@ function Home() {
                 </div>
             </div>
             <form id={"search-form"} onSubmit={(e) => {handleSubmit(e)}} className={"search-form input-group mb-3 justify-content-center"}>
-                <input type={"text"} className={"form-control-lg"} placeholder={"Enter Name or ID"} value={inputString} onChange={(e) => handleChange(e.target.value)}/>
+                <input type={"text"} className={"form-control-lg input-form"} placeholder={"Enter Name or ID"} value={inputString} onChange={(e) => handleChange(e.target.value)}/>
                 <button className={"btn btn-outline-dark"} type={"submit"} id={"submitBtn"}>Search</button>
             </form>
         </div>

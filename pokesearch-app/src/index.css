@@ -62,6 +62,8 @@ a:hover {
     animation: fade-to-black 0.5s forwards;
 }
 
+
+
 @media (max-width: 800px) {
 
     h1 {
