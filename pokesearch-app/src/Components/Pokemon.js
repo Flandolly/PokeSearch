@@ -5,7 +5,6 @@ function Pokemon(props) {
 
     const axios = require("axios").default
     const [pokemon, setPokemon] = useState({})
-    let abilityObj = {}
 
     useEffect(() => {
         function getPokemon() {
@@ -44,8 +43,6 @@ function Pokemon(props) {
                     </div>
                 </section>
                 <div className={"pokemon-imgs d-flex justify-content-evenly"}>
-                    {/*<img src={pokemon.sprites.front_default} alt={pokemon.name}/>*/}
-                    {/*<img src={pokemon.sprites.back_default} alt={pokemon.name}/>*/}
                     <img src={pokemon.sprites.other["official-artwork"].front_default} alt={pokemon.name}/>
                     <div className={"stats-chart align-self-center"}>
                         <div className={"container"}>
@@ -66,16 +63,21 @@ function Pokemon(props) {
                         </div>
                     </div>
                 </div>
-                <section className={"lower-body"}>
+                <section className={"lower-body d-flex"}>
                     <div className={"abilities"}>
                         <h4>Abilities</h4>
                         {pokemon.abilities.map((ability, idx) => {
                             return (
                                 <div className={"ability"} key={idx}>
-                                    <h4>{ability.ability.name}</h4>
                                     <AbilityList ability={ability}/>
                                 </div>
                             )
+                        })}
+                    </div>
+                    <div className={"moves"}>
+                        <h4>MoveList</h4>
+                        {pokemon.abilities.map((move, idx) => {
+
                         })}
                     </div>
                 </section>

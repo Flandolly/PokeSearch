@@ -1,24 +1,22 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
+import {default as axios} from "axios";
 
 function AbilityList({ability}) {
 
-    const axios = require("axios").default
-    let abilityList = ""
+    const [effect, setEffect] = useState("")
+    const [name, setName] = useState("")
 
-    function getAbilities(ability) {
-        axios.get(ability.ability.url)
-            .then(function (response) {
-                abilityList = response.data.effect_entries[1].effect
-                console.log(abilityList)
-            })
-            .then(function () {
-                console.log("Function executed")
-            })
-
-    }
+    axios.get(ability.ability.url)
+        .then(function (response) {
+            setEffect(response.data.effect_entries.find(entry => entry.language.name === "en").effect)
+            setName(response.data.names.find(entry => entry.language.name === "en").name)
+        })
 
     return (
-        <div>{getAbilities(ability)}</div>
+        <div>
+            <h4>{name}</h4>
+            <h5>{effect}</h5>
+        </div>
     )
 
 }
