@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from "react";
+import AbilityList from "./AbilityList.js"
 
 function Pokemon(props) {
 
     const axios = require("axios").default
     const [pokemon, setPokemon] = useState({})
-
+    let abilityObj = {}
 
     useEffect(() => {
         function getPokemon() {
@@ -32,7 +33,7 @@ function Pokemon(props) {
             <div className={"container-fluid"}>
                 <section className={"main-body d-flex align-items-center flex-column"}>
                     <div className={"error"}>
-                        {/*{!didErrorOccur ? <h1>No results found. Try again.</h1> : null}*/}
+
                     </div>
 
                     <div className={"pokemon-title text-capitalize"}>
@@ -66,7 +67,17 @@ function Pokemon(props) {
                     </div>
                 </div>
                 <section className={"lower-body"}>
-
+                    <div className={"abilities"}>
+                        <h4>Abilities</h4>
+                        {pokemon.abilities.map((ability, idx) => {
+                            return (
+                                <div className={"ability"} key={idx}>
+                                    <h4>{ability.ability.name}</h4>
+                                    <AbilityList ability={ability}/>
+                                </div>
+                            )
+                        })}
+                    </div>
                 </section>
             </div>
         )
