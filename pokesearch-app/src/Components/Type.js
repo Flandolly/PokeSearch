@@ -59,7 +59,7 @@ function Type(props) {
                         <div className={"pokemon-list d-flex flex-row flex-wrap"}>
                             {type.pokemon.map((poke, idx) => {
                                 return (
-                                    <div className={"pokemons"} key={idx}>
+                                    <div className={"pokemons text-center"} key={idx}>
                                         <PokemonList poke={poke}/>
                                     </div>
                                 )

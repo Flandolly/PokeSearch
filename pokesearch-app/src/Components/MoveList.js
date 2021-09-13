@@ -10,7 +10,7 @@ function MoveList({move}) {
         axios.get(move.url)
             .then(function (response) {
                 if (response.data.effect_entries.length !== 0) {
-                    setEffect(response.data.effect_entries.find(entry => entry.language.name === "en").effect.replace("$effect_chance", response.data.effect_chance))
+                    setEffect(response.data.effect_entries.find(entry => entry.language.name === "en").effect.replaceAll("$effect_chance", response.data.effect_chance))
                 } else {
                     setEffect("No description available.")
                 }
