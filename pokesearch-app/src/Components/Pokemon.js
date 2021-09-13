@@ -13,6 +13,7 @@ function Pokemon(props) {
         axios.get(`https://pokeapi.co/api/v2/${searchParams[1]}/${searchParams[2]}/`)
             .then(function (response) {
                 setPokemon(response.data)
+                console.log(response.data)
             })
             .catch(function (error) {
                 console.log(error)
@@ -77,7 +78,6 @@ function Pokemon(props) {
                         })}
                     </div>
                     <div className={"moves"}>
-
                         {pokemon.moves.map((move, idx) => {
                             return (
                                 <div className={"move"} key={idx}>

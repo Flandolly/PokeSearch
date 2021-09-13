@@ -6,14 +6,25 @@ function MoveList({move}) {
     const [effect, setEffect] = useState("")
     const [name, setName] = useState("")
 
-    axios.get(move.move.url)
-        .then(function (response) {
-            setEffect(response.data.effect_entries.find(entry => entry.language.name === "en").effect.replace("$effect_chance", response.data.effect_chance))
-            setName(response.data.names.find(entry => entry.language.name === "en").name)
-            //console.log(response.data)
-        })
+    if (move.hasOwnProperty("url")) {
+        axios.get(move.url)
+            .then(function (response) {
+                if (response.data.effect_entries.length !== 0) {
+                    setEffect(response.data.effect_entries.find(entry => entry.language.name === "en").effect.replace("$effect_chance", response.data.effect_chance))
+                } else {
+                    setEffect("No description available.")
+                }
+                setName(response.data.names.find(entry => entry.language.name === "en").name)
+            })
+    } else {
+        axios.get(move.move.url)
+            .then(function (response) {
+                setEffect(response.data.effect_entries.find(entry => entry.language.name === "en").effect.replace("$effect_chance", response.data.effect_chance))
+                setName(response.data.names.find(entry => entry.language.name === "en").name)
+                //console.log(response.data)
+            })
+    }
 
-    console.log(name)
 
     return (
         <div>

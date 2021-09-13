@@ -19,6 +19,7 @@ import iconSteel from "../Resources/GO_Steel_M.png"
 import iconGhost from "../Resources/GO_Ghost_M.png"
 import iconGrass from "../Resources/GO_Grass_M.png"
 import PokemonList from "./PokemonList";
+import MoveList from "./MoveList";
 
 
 function Type(props) {
@@ -58,7 +59,7 @@ function Type(props) {
                         <div className={"pokemon-list d-flex flex-row flex-wrap"}>
                             {type.pokemon.map((poke, idx) => {
                                 return (
-                                    <div className={"pokemon"}>
+                                    <div className={"pokemons"} key={idx}>
                                         <PokemonList poke={poke}/>
                                     </div>
                                 )
@@ -69,33 +70,33 @@ function Type(props) {
                 <section className={"lower-body d-flex flex-row justify-content-evenly"}>
                     <div className={"matchups d-flex"}>
                         <div className={"strengths"}>
-                            <h4>Strong To:</h4>
+                            <h4 className={"fs-6"}>Strong To:</h4>
                             {!type.damage_relations.double_damage_to.length ?
                                 <h5 className={"text-muted fst-italic text-center"}>None</h5> : type.damage_relations.double_damage_to.map((item, idx) => {
                                     return (
-                                        <div className={"type"}>
+                                        <div className={"type"} key={idx}>
                                             <h5 className={"text-capitalize text-center"}>{item.name}</h5>
                                         </div>
                                     )
                                 })}
                         </div>
                         <div className={"weaknesses"}>
-                            <h4>Weak To:</h4>
+                            <h4 className={"fs-6 text-center"}>Weak To:</h4>
                             {!type.damage_relations.double_damage_from.length ?
                                 <h5 className={"text-muted fst-italic text-center"}>Empty.</h5> : type.damage_relations.double_damage_from.map((item, idx) => {
                                     return (
-                                        <div className={"type"}>
+                                        <div className={"type"} key={idx}>
                                             <h5 className={"text-capitalize text-center"}>{item.name}</h5>
                                         </div>
                                     )
                                 })}
                         </div>
                         <div className={"immunities"}>
-                            <h4>Immune To:</h4>
+                            <h4 className={"fs-6"}>Immune To:</h4>
                             {!type.damage_relations.no_damage_from.length ?
                                 <h5 className={"text-muted fst-italic text-center"}>Empty</h5> : type.damage_relations.no_damage_from.map((item, idx) => {
                                     return (
-                                        <div className={"type"}>
+                                        <div className={"type"} key={idx}>
                                             <h5 className={"text-capitalize text-center"}>{item.name}</h5>
                                         </div>
                                     )
@@ -103,7 +104,16 @@ function Type(props) {
                         </div>
                     </div>
                     <div className={"move-list"}>
-
+                        <h4 className={"fs-6 text-center"}>Moves of This Type</h4>
+                        <div className={"moves"}>
+                            {type.moves.map((move, idx) => {
+                                return (
+                                    <div className={"move"} key={idx}>
+                                        <MoveList move={move}/>
+                                    </div>
+                                )
+                            })}
+                        </div>
                     </div>
                 </section>
             </div>
