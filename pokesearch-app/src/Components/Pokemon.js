@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import AbilityList from "./AbilityList.js"
+import MoveList from "./MoveList";
 
 function Pokemon(props) {
 
@@ -13,14 +14,16 @@ function Pokemon(props) {
             axios.get(`https://pokeapi.co/api/v2/${searchParams[1]}/${searchParams[2]}/`)
                 .then(function (response) {
                     console.log(response.data)
+                    console.log(response.data.moves[0])
                     setPokemon(response.data)
                 })
                 .catch(function (error) {
                     console.log(error)
                 })
         }
+
         getPokemon()
-    },[axios, props.match.url])
+    }, [axios, props.match.url])
 
     /*
     Check to prevent data for images being loaded before the API data is finished being fetched.
@@ -46,6 +49,7 @@ function Pokemon(props) {
                     <img src={pokemon.sprites.other["official-artwork"].front_default} alt={pokemon.name}/>
                     <div className={"stats-chart align-self-center"}>
                         <div className={"container"}>
+                            <h4 className={"text-center fs-6"}>Stats</h4>
                             <div className={"row row-cols-2"}>
                                 <div className="stat col text-center">{pokemon.stats[0].stat.name.toUpperCase()}</div>
                                 <div className="stat col text-center">{pokemon.stats[0].base_stat}</div>
@@ -63,9 +67,13 @@ function Pokemon(props) {
                         </div>
                     </div>
                 </div>
+                <div className={"list-titles d-flex justify-content-around"}>
+                    <h4>Abilities</h4>
+                    <h4>Moves</h4>
+                </div>
                 <section className={"lower-body d-flex"}>
                     <div className={"abilities"}>
-                        <h4>Abilities</h4>
+
                         {pokemon.abilities.map((ability, idx) => {
                             return (
                                 <div className={"ability"} key={idx}>
@@ -75,9 +83,13 @@ function Pokemon(props) {
                         })}
                     </div>
                     <div className={"moves"}>
-                        <h4>MoveList</h4>
-                        {pokemon.abilities.map((move, idx) => {
 
+                        {pokemon.moves.map((move, idx) => {
+                            return (
+                                <div className={"move"} key={idx}>
+                                    <MoveList move={move}/>
+                                </div>
+                            )
                         })}
                     </div>
                 </section>

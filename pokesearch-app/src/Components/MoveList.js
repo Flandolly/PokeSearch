@@ -1,16 +1,19 @@
 import React, {useState} from "react";
 import {default as axios} from "axios";
 
-function AbilityList({ability}) {
+function MoveList({move}) {
 
     const [effect, setEffect] = useState("")
     const [name, setName] = useState("")
 
-    axios.get(ability.ability.url)
+    axios.get(move.move.url)
         .then(function (response) {
-            setEffect(response.data.effect_entries.find(entry => entry.language.name === "en").effect)
+            setEffect(response.data.effect_entries.find(entry => entry.language.name === "en").effect.replace("$effect_chance", response.data.effect_chance))
             setName(response.data.names.find(entry => entry.language.name === "en").name)
+            //console.log(response.data)
         })
+
+    console.log(name)
 
     return (
         <div>
@@ -21,4 +24,4 @@ function AbilityList({ability}) {
 
 }
 
-export default AbilityList
+export default MoveList

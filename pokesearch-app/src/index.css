@@ -75,6 +75,16 @@ a:hover {
     box-shadow: 2px 2px black;
 }
 
+.abilities, .moves {
+    border: 1px solid black;
+    width: 50%;
+    height: 290px;
+    overflow-y: scroll;
+    margin: 0 15px;
+    padding: 15px;
+    box-shadow: 2px 2px black;
+}
+
 
 @media (max-width: 800px) {
 
