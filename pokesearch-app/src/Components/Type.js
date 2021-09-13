@@ -18,6 +18,7 @@ import iconFlying from "../Resources/GO_Flying_M.png"
 import iconSteel from "../Resources/GO_Steel_M.png"
 import iconGhost from "../Resources/GO_Ghost_M.png"
 import iconGrass from "../Resources/GO_Grass_M.png"
+import PokemonList from "./PokemonList";
 
 
 function Type(props) {
@@ -46,8 +47,24 @@ function Type(props) {
                 <div className={"type-title text-capitalize"}>
                     <h3>{type.name} Type</h3>
                 </div>
-                <img src={image} alt={"Type Sprite"}/>
             </section>
+            <div className={"d-flex justify-content-evenly"}>
+                <div className={"type-imgs"}>
+                    <img className={"type-img"} src={image} alt={type.name}/>
+                </div>
+                <div className={"pokemon-group d-flex flex-column"}>
+                    <h4 className={"pokemon-list-title fs-6 text-center"}>Pokemon With This Type</h4>
+                    <div className={"pokemon-list d-flex flex-row flex-wrap"}>
+                        {type.pokemon.map((poke, idx) => {
+                            return (
+                                <div className={"pokemon"}>
+                                    <PokemonList poke={poke}/>
+                                </div>
+                            )
+                        })}
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
