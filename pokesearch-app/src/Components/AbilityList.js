@@ -14,8 +14,8 @@ function AbilityList({ability}) {
 
     return (
         <div>
-            <h4 className={"fs-6"}>{name}</h4>
-            <h5>{effect}</h5>
+            <h4 className={"ability-name fs-6"}>{name}</h4>
+            <h5 className={"ability-effect"}>{effect}</h5>
         </div>
     )
 
