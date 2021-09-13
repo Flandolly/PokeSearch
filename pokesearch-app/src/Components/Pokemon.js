@@ -8,21 +8,15 @@ function Pokemon(props) {
     const [pokemon, setPokemon] = useState({})
 
     useEffect(() => {
-        function getPokemon() {
-            const searchParams = props.match.url.split("/")
+        const searchParams = props.match.url.split("/")
 
-            axios.get(`https://pokeapi.co/api/v2/${searchParams[1]}/${searchParams[2]}/`)
-                .then(function (response) {
-                    console.log(response.data)
-                    console.log(response.data.moves[0])
-                    setPokemon(response.data)
-                })
-                .catch(function (error) {
-                    console.log(error)
-                })
-        }
-
-        getPokemon()
+        axios.get(`https://pokeapi.co/api/v2/${searchParams[1]}/${searchParams[2]}/`)
+            .then(function (response) {
+                setPokemon(response.data)
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
     }, [axios, props.match.url])
 
     /*

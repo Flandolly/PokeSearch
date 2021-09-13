@@ -3,6 +3,7 @@ import Home from "./Components/Home";
 import {Route} from "react-router-dom";
 import Header from "./Components/Header";
 import Pokemon from "./Components/Pokemon";
+import Type from "./Components/Type";
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
             <main>
                 <Route path={"/"} exact component={Home}/>
                 <Route path={"/pokemon/:search"} exact component={Pokemon}/>
+                <Route path={"/type/:search"} exact component={Type}/>
             </main>
         </div>
     );
