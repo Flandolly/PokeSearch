@@ -130,6 +130,14 @@ a:hover {
     margin-top: 20px;
 }
 
+.p-type {
+    margin: 0 10px;
+}
+
+.error-title {
+    margin-bottom: 50px;
+}
+
 
 @media (max-width: 800px) {
 

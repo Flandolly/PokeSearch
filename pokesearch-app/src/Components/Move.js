@@ -5,6 +5,7 @@ import PokemonList from "./PokemonList";
 function Move(props) {
 
     const [move, setMove] = useState({})
+    const [error, setError] = useState("")
 
     useEffect(() => {
         const searchParams = props.match.url.split("/")
@@ -12,6 +13,10 @@ function Move(props) {
             .then(function (response) {
                 setMove(response.data)
                 console.log(response.data)
+            })
+            .catch(function (error) {
+                setError(error)
+                console.log(error)
             })
     }, [props.match.url])
 
@@ -64,6 +69,16 @@ function Move(props) {
                 </section>
             </div>
         )
+    } else if (error.length !== 0) {
+        if (error.toString().includes("404")) {
+            return (
+                <div className={"error text-center"}>
+                    <h1 className={"error-title"}>404</h1>
+                    <h4>Uh Oh! This page doesn't exist!</h4>
+                    <h5>Double-check spelling and try again.</h5>
+                </div>
+            )
+        }
     } else {
         return (
             <div className={"container-fluid"}>

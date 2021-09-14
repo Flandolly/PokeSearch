@@ -6,6 +6,7 @@ function Pokemon(props) {
 
     const axios = require("axios").default
     const [pokemon, setPokemon] = useState({})
+    const [error, setError] = useState("")
 
     useEffect(() => {
         const searchParams = props.match.url.split("/")
@@ -16,6 +17,7 @@ function Pokemon(props) {
                 console.log(response.data)
             })
             .catch(function (error) {
+                setError(error)
                 console.log(error)
             })
     }, [axios, props.match.url])
@@ -29,15 +31,20 @@ function Pokemon(props) {
         return (
             <div className={"container-fluid"}>
                 <section className={"main-body d-flex align-items-center flex-column"}>
-                    <div className={"error"}>
-
-                    </div>
-
                     <div className={"pokemon-title text-capitalize"}>
                         <h3>{pokemon.name}</h3>
                     </div>
                     <div className={"pokemon-id"}>
                         <h4>No.{pokemon.id}</h4>
+                    </div>
+                    <div className={"pokemon-types d-flex"}>
+                        {pokemon.types.map(type => {
+                            return (
+                                <div className={"p-type text-capitalize"}>
+                                    <h4>{type.type.name}</h4>
+                                </div>
+                            )
+                        })}
                     </div>
                 </section>
                 <div className={"pokemon-imgs d-flex justify-content-evenly"}>
@@ -89,6 +96,16 @@ function Pokemon(props) {
                 </section>
             </div>
         )
+    } else if (error.length !== 0) {
+        if (error.toString().includes("404")) {
+            return (
+                <div className={"error text-center"}>
+                    <h1 className={"error-title"}>404</h1>
+                    <h4>Uh Oh! This page doesn't exist!</h4>
+                    <h5>Double-check spelling and try again.</h5>
+                </div>
+            )
+        }
     } else {
         return (
             <div className={"container-fluid"}>

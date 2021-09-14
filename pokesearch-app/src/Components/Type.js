@@ -26,6 +26,7 @@ function Type(props) {
 
     const [type, setType] = useState({})
     const [image, setImage] = useState("")
+    const [error, setError] = useState("")
 
     useEffect(() => {
         const imageSrcs = [iconDark, iconIce, iconGrass, iconNormal, iconFairy, iconGround, iconDragon, iconFighting, iconRock,
@@ -38,7 +39,10 @@ function Type(props) {
                 setImage(foundImg)
                 console.log(response.data)
             })
-
+            .catch(function (error) {
+                setError(error)
+                console.log(error)
+            })
     }, [props.match.url])
 
 
@@ -118,6 +122,16 @@ function Type(props) {
                 </section>
             </div>
         )
+    } else if (error.length !== 0) {
+        if (error.toString().includes("404")) {
+            return (
+                <div className={"error text-center"}>
+                    <h1 className={"error-title"}>404</h1>
+                    <h4>Uh Oh! This page doesn't exist!</h4>
+                    <h5>Double-check spelling and try again.</h5>
+                </div>
+            )
+        }
     } else {
         return (
             <div className={"container-fluid"}>

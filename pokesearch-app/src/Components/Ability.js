@@ -4,6 +4,7 @@ import PokemonList from "./PokemonList";
 
 function Ability(props) {
     const [ability, setAbility] = useState({})
+    const [error, setError] = useState("")
 
     useEffect(() => {
         const searchParams = props.match.url.split("/")
@@ -12,6 +13,9 @@ function Ability(props) {
             .then(function (response) {
                 setAbility(response.data)
                 console.log(response.data)
+            })
+            .catch(function (error) {
+                setError(error)
             })
     }, [props.match.url])
 
@@ -50,15 +54,24 @@ function Ability(props) {
                 </section>
             </div>
         )
-    } else {
-        return (
-            <div className={"container-fluid"}>
-                <div className={"main-body d-flex justify-content-center align-items-center"}>
-                    <h1>Loading...</h1>
+    } else if (error.length !== 0) {
+        if (error.toString().includes("404")) {
+            return (
+                <div className={"error text-center"}>
+                    <h1 className={"error-title"}>404</h1>
+                    <h4>Uh Oh! This page doesn't exist!</h4>
+                    <h5>Double-check spelling and try again.</h5>
                 </div>
-            </div>
-        )
+            )
+        }
+    } else {
+            return (
+                <div className={"container-fluid"}>
+                    <div className={"main-body d-flex justify-content-center align-items-center"}>
+                        <h1>Loading...</h1>
+                    </div>
+                </div>
+            )
+        }
     }
-}
-
 export default Ability
