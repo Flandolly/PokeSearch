@@ -15,11 +15,9 @@ function Pokemon(props) {
         axios.get(`https://pokeapi.co/api/v2/${searchParams[1]}/${searchParams[2]}/`)
             .then(function (response) {
                 setPokemon(response.data)
-                console.log(response.data)
             })
             .catch(function (error) {
                 setError(error)
-                console.log(error)
             })
     }, [axios, props.match.url])
 
@@ -66,9 +64,9 @@ function Pokemon(props) {
                                 <div className="stat col text-center">{pokemon.stats[1].base_stat}</div>
                                 <div className="stat col text-center">{pokemon.stats[2].stat.name.toUpperCase()}</div>
                                 <div className="stat col text-center">{pokemon.stats[2].base_stat}</div>
-                                <div className="stat col text-center">{pokemon.stats[3].stat.name.toUpperCase()}</div>
+                                <div className="stat col text-center">{pokemon.stats[3].stat.name.toUpperCase().replaceAll("-", " ")}</div>
                                 <div className="stat col text-center">{pokemon.stats[3].base_stat}</div>
-                                <div className="stat col text-center">{pokemon.stats[4].stat.name.toUpperCase()}</div>
+                                <div className="stat col text-center">{pokemon.stats[4].stat.name.toUpperCase().replaceAll("-", " ")}</div>
                                 <div className="stat col text-center">{pokemon.stats[4].base_stat}</div>
                                 <div className="stat col text-center">{pokemon.stats[5].stat.name.toUpperCase()}</div>
                                 <div className="stat col text-center">{pokemon.stats[5].base_stat}</div>
@@ -110,6 +108,7 @@ function Pokemon(props) {
                     <h1 className={"error-title"}>404</h1>
                     <h4>Uh Oh! This page doesn't exist!</h4>
                     <h5>Double-check spelling and try again.</h5>
+                    <h5>Redirecting back to home in 5 seconds...</h5>
                     {setTimeout(() => {
                         props.history.push("/")
                     }, 5000)}

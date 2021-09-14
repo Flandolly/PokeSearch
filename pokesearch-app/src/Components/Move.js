@@ -13,11 +13,9 @@ function Move(props) {
         axios.get(`https://pokeapi.co/api/v2/${searchParams[1]}/${searchParams[2]}/`)
             .then(function (response) {
                 setMove(response.data)
-                console.log(response.data)
             })
             .catch(function (error) {
                 setError(error)
-                console.log(error)
             })
     }, [props.match.url])
 

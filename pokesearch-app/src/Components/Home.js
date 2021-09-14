@@ -16,7 +16,7 @@ function Home(props) {
     }
 
     function handleChange(input) {
-        return setInputString(input.toLowerCase())
+        return setInputString(input)
     }
 
     function handleSubmit(event) {
@@ -25,7 +25,7 @@ function Home(props) {
         event.preventDefault()
         document.getElementById("search-form").reset()
 
-        setSearchTerm([inputString.replaceAll(" ", "-"), searchType])
+        setSearchTerm([inputString.toLowerCase().replaceAll(" ", "-"), searchType])
     }
 
     useEffect(() => {

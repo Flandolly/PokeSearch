@@ -12,7 +12,6 @@ function Ability(props) {
         axios.get(`https://pokeapi.co/api/v2/${searchParams[1]}/${searchParams[2]}/`)
             .then(function (response) {
                 setAbility(response.data)
-                console.log(response.data)
             })
             .catch(function (error) {
                 setError(error)
@@ -61,6 +60,7 @@ function Ability(props) {
                     <h1 className={"error-title"}>404</h1>
                     <h4>Uh Oh! This page doesn't exist!</h4>
                     <h5>Double-check spelling and try again.</h5>
+                    <h5>Redirecting back to home in 5 seconds...</h5>
                     {setTimeout(() => {
                         props.history.push("/")
                     }, 5000)}

@@ -37,11 +37,9 @@ function Type(props) {
                 const foundImg = imageSrcs.find(img => img.toLowerCase().includes(response.data.name))
                 setType(response.data)
                 setImage(foundImg)
-                console.log(response.data)
             })
             .catch(function (error) {
                 setError(error)
-                console.log(error)
             })
     }, [props.match.url])
 
@@ -129,6 +127,7 @@ function Type(props) {
                     <h1 className={"error-title"}>404</h1>
                     <h4>Uh Oh! This page doesn't exist!</h4>
                     <h5>Double-check spelling and try again.</h5>
+                    <h5>Redirecting back to home in 5 seconds...</h5>
                     {setTimeout(() => {
                         props.history.push("/")
                     }, 5000)}
