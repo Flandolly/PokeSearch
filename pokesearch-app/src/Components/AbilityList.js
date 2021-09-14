@@ -9,7 +9,11 @@ function AbilityList({ability}) {
 
     axios.get(ability.ability.url)
         .then(function (response) {
-            setEffect(response.data.effect_entries.find(entry => entry.language.name === "en").effect)
+            if (response.data.effect_entries.length !== 0) {
+                setEffect(response.data.effect_entries.find(entry => entry.language.name === "en").effect)
+            } else {
+                setEffect("No description available.")
+            }
             setName(response.data.names.find(entry => entry.language.name === "en").name)
         })
 

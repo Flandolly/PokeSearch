@@ -18,14 +18,13 @@ function MoveList({move}) {
                 setName(response.data.names.find(entry => entry.language.name === "en").name)
             })
     } else {
-        axios.get(move.move.url)
+        axios.get(move.move.url ? move.move.url : move.url)
             .then(function (response) {
                 setEffect(response.data.effect_entries.find(entry => entry.language.name === "en").effect.replaceAll("$effect_chance", response.data.effect_chance))
                 setName(response.data.names.find(entry => entry.language.name === "en").name)
                 //console.log(response.data)
             })
     }
-
 
     return (
         <div>

@@ -41,8 +41,8 @@ function Pokemon(props) {
                     <div className={"pokemon-types d-flex"}>
                         {pokemon.types.map((type, idx) => {
                             return (
-                                <Link to={`/type/${type.type.name}`}>
-                                    <div className={"p-type text-capitalize"} key={idx}>
+                                <Link to={`/type/${type.type.name}`} key={idx}>
+                                    <div className={"p-type text-capitalize"}>
                                         <h4>{type.type.name}</h4>
                                     </div>
                                 </Link>
