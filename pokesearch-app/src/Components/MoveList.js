@@ -20,7 +20,7 @@ function MoveList({move}) {
     } else {
         axios.get(move.move.url)
             .then(function (response) {
-                setEffect(response.data.effect_entries.find(entry => entry.language.name === "en").effect.replace("$effect_chance", response.data.effect_chance))
+                setEffect(response.data.effect_entries.find(entry => entry.language.name === "en").effect.replaceAll("$effect_chance", response.data.effect_chance))
                 setName(response.data.names.find(entry => entry.language.name === "en").name)
                 //console.log(response.data)
             })

@@ -38,9 +38,9 @@ function Pokemon(props) {
                         <h4>No.{pokemon.id}</h4>
                     </div>
                     <div className={"pokemon-types d-flex"}>
-                        {pokemon.types.map(type => {
+                        {pokemon.types.map((type, idx) => {
                             return (
-                                <div className={"p-type text-capitalize"}>
+                                <div className={"p-type text-capitalize"} key={idx}>
                                     <h4>{type.type.name}</h4>
                                 </div>
                             )
@@ -48,7 +48,11 @@ function Pokemon(props) {
                     </div>
                 </section>
                 <div className={"pokemon-imgs d-flex justify-content-evenly"}>
-                    <img src={pokemon.sprites.other["official-artwork"].front_default} alt={pokemon.name}/>
+                    <img
+                        src={pokemon.sprites.other["official-artwork"].front_default !== null ?
+                            pokemon.sprites.other["official-artwork"].front_default :
+                            pokemon.sprites.front_default}
+                        alt={pokemon.name}/>
                     <div className={"stats-chart align-self-center"}>
                         <div className={"container"}>
                             <h4 className={"text-center fs-6"}>Stats</h4>
