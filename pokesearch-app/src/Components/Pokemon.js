@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import AbilityList from "./AbilityList.js"
 import MoveList from "./MoveList";
+import {Link} from "react-router-dom";
 
 function Pokemon(props) {
 
@@ -40,9 +41,11 @@ function Pokemon(props) {
                     <div className={"pokemon-types d-flex"}>
                         {pokemon.types.map((type, idx) => {
                             return (
-                                <div className={"p-type text-capitalize"} key={idx}>
-                                    <h4>{type.type.name}</h4>
-                                </div>
+                                <Link to={`/type/${type.type.name}`}>
+                                    <div className={"p-type text-capitalize"} key={idx}>
+                                        <h4>{type.type.name}</h4>
+                                    </div>
+                                </Link>
                             )
                         })}
                     </div>

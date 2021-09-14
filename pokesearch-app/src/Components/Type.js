@@ -87,7 +87,7 @@ function Type(props) {
                         <div className={"weaknesses"}>
                             <h4 className={"fs-6 text-center"}>Weak To:</h4>
                             {!type.damage_relations.double_damage_from.length ?
-                                <h5 className={"text-muted fst-italic text-center"}>Empty.</h5> : type.damage_relations.double_damage_from.map((item, idx) => {
+                                <h5 className={"text-muted fst-italic text-center"}>None</h5> : type.damage_relations.double_damage_from.map((item, idx) => {
                                     return (
                                         <div className={"type"} key={idx}>
                                             <h5 className={"text-capitalize text-center"}>{item.name}</h5>
@@ -98,7 +98,7 @@ function Type(props) {
                         <div className={"immunities"}>
                             <h4 className={"fs-6"}>Immune To:</h4>
                             {!type.damage_relations.no_damage_from.length ?
-                                <h5 className={"text-muted fst-italic text-center"}>Empty</h5> : type.damage_relations.no_damage_from.map((item, idx) => {
+                                <h5 className={"text-muted fst-italic text-center"}>None</h5> : type.damage_relations.no_damage_from.map((item, idx) => {
                                     return (
                                         <div className={"type"} key={idx}>
                                             <h5 className={"text-capitalize text-center"}>{item.name}</h5>
