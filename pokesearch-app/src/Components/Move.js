@@ -26,7 +26,7 @@ function Move(props) {
             <div className={"container-fluid"}>
                 <section className={"main-body d-flex align-items-center flex-column"}>
                     <div className={"move-title text-capitalize"}>
-                        <h3>{move.name}</h3>
+                        <h3>{move.name.replaceAll("-", " ")}</h3>
                     </div>
                     <div className={"move-id"}>
                         <h4>No. {move.id}</h4>

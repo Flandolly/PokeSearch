@@ -24,7 +24,7 @@ function Ability(props) {
             <div className={"container-fluid"}>
                 <section className={"main-body d-flex align-items-center flex-column"}>
                     <div className={"ability-title text-capitalize"}>
-                        <h3>{ability.name}</h3>
+                        <h3>{ability.name.replaceAll("-", " ")}</h3>
                     </div>
                     <div className={"ability-id"}>
                         <h4>No. {ability.id}</h4>
