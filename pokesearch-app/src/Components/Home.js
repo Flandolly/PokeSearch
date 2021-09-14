@@ -25,7 +25,7 @@ function Home(props) {
         event.preventDefault()
         document.getElementById("search-form").reset()
 
-        setSearchTerm([inputString, searchType])
+        setSearchTerm([inputString.replaceAll(" ", "-"), searchType])
     }
 
     useEffect(() => {
