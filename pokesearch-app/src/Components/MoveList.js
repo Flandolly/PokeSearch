@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {default as axios} from "axios";
+import {Link} from "react-router-dom";
 
 function MoveList({move}) {
 
@@ -28,7 +29,9 @@ function MoveList({move}) {
 
     return (
         <div>
-            <h4 className={"move-name fs-6"}>{name}</h4>
+            <Link to={`/move/${name.toLowerCase().replaceAll(" ", "-")}`}>
+                <h4 className={"move-name fs-6"}>{name}</h4>
+            </Link>
             <h5 className={"move-effect"}>{effect}</h5>
         </div>
     )

@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {default as axios} from "axios";
+import {Link} from "react-router-dom";
 
 function PokemonList({poke}) {
 
@@ -22,8 +23,10 @@ function PokemonList({poke}) {
 
     return (
         <div>
-            <img src={sprite} alt={name}/>
-            <h5 className={"ability-name fs-6 text-capitalize"}>{name}</h5>
+            <Link to={`/pokemon/${name.toLowerCase().replaceAll(" ", "-")}`}>
+                <img src={sprite} alt={name}/>
+                <h5 className={"pokemon-name fs-6 text-capitalize"}>{name}</h5>
+            </Link>
         </div>
     )
 

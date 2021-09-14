@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {default as axios} from "axios";
+import {Link} from "react-router-dom";
 
 function AbilityList({ability}) {
 
@@ -14,7 +15,9 @@ function AbilityList({ability}) {
 
     return (
         <div>
-            <h4 className={"ability-name fs-6"}>{name}</h4>
+            <Link to={`/ability/${name.toLowerCase().replaceAll(" ", "-")}`}>
+                <h4 className={"ability-name fs-6"}>{name}</h4>
+            </Link>
             <h5 className={"ability-effect"}>{effect}</h5>
         </div>
     )

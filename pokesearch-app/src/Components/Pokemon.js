@@ -109,7 +109,7 @@ function Pokemon(props) {
     } else {
         return (
             <div className={"container-fluid"}>
-                <div className={"main-body d-flex justify-content-center align-items-center"}>
+                <div className={"loading d-flex justify-content-center align-items-center"}>
                     <h1>Loading...</h1>
                 </div>
             </div>

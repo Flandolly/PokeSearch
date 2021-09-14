@@ -20,6 +20,18 @@ h2, h3, h4 {
     font-family: "Press Start 2P", cursive;
 }
 
+h5 {
+    color: black;
+}
+
+.ability-name, .move-name, .pokemon-name {
+    color: black;
+}
+
+.ability-name:hover, .move-name:hover, .pokemon-name:hover {
+    color: darkslategrey;
+}
+
 a {
     text-decoration: none;
     color: whitesmoke;
@@ -138,6 +150,10 @@ a:hover {
     margin-bottom: 50px;
 }
 
+.loading {
+    animation: pulse 1s infinite;
+}
+
 
 @media (max-width: 800px) {
 
@@ -164,5 +180,19 @@ a:hover {
     to {
         background-color: black;
         color: white;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.8);
+    }
+
+    100% {
+        transform: scale(1);
     }
 }
