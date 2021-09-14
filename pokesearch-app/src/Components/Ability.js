@@ -61,6 +61,9 @@ function Ability(props) {
                     <h1 className={"error-title"}>404</h1>
                     <h4>Uh Oh! This page doesn't exist!</h4>
                     <h5>Double-check spelling and try again.</h5>
+                    {setTimeout(() => {
+                        props.history.push("/")
+                    }, 5000)}
                 </div>
             )
         }
