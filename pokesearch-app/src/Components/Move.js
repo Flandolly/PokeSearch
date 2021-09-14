@@ -35,12 +35,12 @@ function Move(props) {
                 <section className={"middle-body d-flex justify-content-evenly align-items-center"}>
                     <div className={"stats-chart move-stats"}>
                         <div className={"container"}>
-                            <h4 className={"text-center fs-6"}>Stats</h4>
+                            <h4 className={"stats-title text-center fs-6"}>Stats</h4>
                             <div className={"row row-cols-2"}>
                                 <div className={"stat col text-center"}>Category:</div>
                                 <div className={"stat col text-center text-capitalize"}>{move.damage_class.name}</div>
                                 <div className={"stat col text-center"}>Power:</div>
-                                <div className={"stat col text-center"}>{move.power}</div>
+                                <div className={"stat col text-center"}>{move.power !== null ? move.power : "N/A"}</div>
                                 <div className={"stat col text-center"}>PP:</div>
                                 <div className={"stat col text-center"}>{move.pp}</div>
                             </div>
