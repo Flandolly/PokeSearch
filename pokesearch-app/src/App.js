@@ -5,6 +5,7 @@ import Header from "./Components/Header";
 import Pokemon from "./Components/Pokemon";
 import Type from "./Components/Type";
 import Move from "./Components/Move";
+import Ability from "./Components/Ability";
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                 <Route path={"/pokemon/:search"} exact component={Pokemon}/>
                 <Route path={"/type/:search"} exact component={Type}/>
                 <Route path={"/move/:search"} exact component={Move}/>
+                <Route path={"/ability/:search"} exact component={Ability}/>
             </main>
         </div>
     );
