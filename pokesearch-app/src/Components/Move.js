@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {default as axios} from "axios";
 import PokemonList from "./PokemonList";
+import {Link} from "react-router-dom";
 
 function Move(props) {
 
@@ -30,6 +31,11 @@ function Move(props) {
                     </div>
                     <div className={"move-id"}>
                         <h4>No. {move.id}</h4>
+                    </div>
+                    <div className={"move-type"}>
+                        <Link to={`/type/${move.type.name}`}>
+                            <h4 className={"p-type text-capitalize"}>{move.type.name}</h4>
+                        </Link>
                     </div>
                 </section>
                 <section className={"middle-body d-flex justify-content-evenly align-items-center"}>
