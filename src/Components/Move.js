@@ -68,7 +68,7 @@ function Move(props) {
                         <h4 className={"fs-5 text-center"}>Description</h4>
                     </div>
                     <div className={"description"}>
-                        <h5>{move.effect_entries.find(entry => entry.language.name === "en").effect.replaceAll("$effect_chance", move.effect_chance)}</h5>
+                        <h5>{move.effect_entries.length !== 0 ? move.effect_entries.find(entry => entry.language.name === "en").effect.replaceAll("$effect_chance", move.effect_chance) : "No description available."}</h5>
                     </div>
                 </section>
             </div>

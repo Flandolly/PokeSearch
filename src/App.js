@@ -6,12 +6,14 @@ import Pokemon from "./Components/Pokemon";
 import Type from "./Components/Type";
 import Move from "./Components/Move";
 import Ability from "./Components/Ability";
+import About from "./Components/About";
 
 function App() {
     return (
         <div>
             <header>
                 <Route path={"/"} component={Header}/>
+                <Route path={"/about"} exact component={About}/>
             </header>
 
             <main>

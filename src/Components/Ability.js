@@ -11,6 +11,7 @@ function Ability(props) {
 
         axios.get(`https://pokeapi.co/api/v2/${searchParams[1]}/${searchParams[2]}/`)
             .then(function (response) {
+                console.log(response.data)
                 setAbility(response.data)
             })
             .catch(function (error) {
@@ -48,7 +49,7 @@ function Ability(props) {
                         <h4 className={"fs-5 text-center"}>Description</h4>
                     </div>
                     <div className={"description"}>
-                        <h5>{ability.effect_entries.find(entry => entry.language.name === "en").effect}</h5>
+                        <h5>{ability.effect_entries.length !== 0 ? ability.effect_entries.find(entry => entry.language.name === "en").effect : "No description available."}</h5>
                     </div>
                 </section>
             </div>
