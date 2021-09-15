@@ -10,7 +10,7 @@
     src: url("Resources/Pokemon Solid.ttf");
 }
 
-img {
+.pokemon-imgs img {
     width: 30%;
 }
 
