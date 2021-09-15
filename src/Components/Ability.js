@@ -11,7 +11,6 @@ function Ability(props) {
 
         axios.get(`https://pokeapi.co/api/v2/${searchParams[1]}/${searchParams[2]}/`)
             .then(function (response) {
-                console.log(response.data)
                 setAbility(response.data)
             })
             .catch(function (error) {
