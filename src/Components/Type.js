@@ -20,6 +20,7 @@ import iconGhost from "../Resources/GO_Ghost_M.png"
 import iconGrass from "../Resources/GO_Grass_M.png"
 import PokemonList from "./PokemonList";
 import MoveList from "./MoveList";
+import {Link} from "react-router-dom";
 
 
 function Type(props) {
@@ -76,9 +77,11 @@ function Type(props) {
                             {!type.damage_relations.double_damage_to.length ?
                                 <h5 className={"text-muted fst-italic text-center"}>None</h5> : type.damage_relations.double_damage_to.map((item, idx) => {
                                     return (
-                                        <div className={"type"} key={idx}>
-                                            <h5 className={"text-capitalize text-center"}>{item.name}</h5>
-                                        </div>
+                                        <Link to={`/type/${item.name}`}>
+                                            <div className={"type"} key={idx}>
+                                                <h5 className={"t-name text-capitalize text-center"}>{item.name}</h5>
+                                            </div>
+                                        </Link>
                                     )
                                 })}
                         </div>
@@ -87,9 +90,11 @@ function Type(props) {
                             {!type.damage_relations.double_damage_from.length ?
                                 <h5 className={"text-muted fst-italic text-center"}>None</h5> : type.damage_relations.double_damage_from.map((item, idx) => {
                                     return (
-                                        <div className={"type"} key={idx}>
-                                            <h5 className={"text-capitalize text-center"}>{item.name}</h5>
-                                        </div>
+                                        <Link to={`/type/${item.name}`}>
+                                            <div className={"type"} key={idx}>
+                                                <h5 className={"t-name text-capitalize text-center"}>{item.name}</h5>
+                                            </div>
+                                        </Link>
                                     )
                                 })}
                         </div>
@@ -98,9 +103,11 @@ function Type(props) {
                             {!type.damage_relations.no_damage_from.length ?
                                 <h5 className={"text-muted fst-italic text-center"}>None</h5> : type.damage_relations.no_damage_from.map((item, idx) => {
                                     return (
-                                        <div className={"type"} key={idx}>
-                                            <h5 className={"text-capitalize text-center"}>{item.name}</h5>
-                                        </div>
+                                        <Link to={`/type/${item.name}`}>
+                                            <div className={"type"} key={idx}>
+                                                <h5 className={"t-name text-capitalize text-center"}>{item.name}</h5>
+                                            </div>
+                                        </Link>
                                     )
                                 })}
                         </div>

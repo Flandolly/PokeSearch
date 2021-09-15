@@ -14,6 +14,7 @@ function Pokemon(props) {
 
         axios.get(`https://pokeapi.co/api/v2/${searchParams[1]}/${searchParams[2]}/`)
             .then(function (response) {
+                console.log(response.data)
                 setPokemon(response.data)
             })
             .catch(function (error) {

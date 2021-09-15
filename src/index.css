@@ -10,6 +10,10 @@
     src: url("Resources/Pokemon Solid.ttf");
 }
 
+img {
+    width: 30%;
+}
+
 h1 {
     font-family: PokeFontHollow, cursive;
     font-size: 8em;
@@ -28,7 +32,7 @@ h5 {
     color: black;
 }
 
-.ability-name:hover, .move-name:hover, .pokemon-name:hover, .p-type:hover {
+.ability-name:hover, .move-name:hover, .pokemon-name:hover, .p-type:hover .t-name:hover {
     color: darkslategrey;
 }
 
